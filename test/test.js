@@ -1,13 +1,13 @@
 import { src, dest } from 'vinyl-fs';
 import assert from 'assert';
 import equal from 'assert-dir-equal';
-import { Panini } from '..';
+import { PaniniMustache } from '..';
 
 const FIXTURES = 'test/fixtures/';
 
-describe('Panini', () => {
+describe('PaniniMustache', () => {
   it('builds a page with a default layout', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'basic/pages/',
       layouts: FIXTURES + 'basic/layouts'
     });
@@ -24,7 +24,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with a custom layout', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'layouts/pages/',
       layouts: FIXTURES + 'layouts/layouts/'
     });
@@ -41,7 +41,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with preset layouts by folder', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'page-layouts/pages/',
       layouts: FIXTURES + 'page-layouts/layouts/',
       pageLayouts: {
@@ -61,7 +61,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with custom partials', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'partials/pages/',
       layouts: FIXTURES + 'partials/layouts/',
       partials: FIXTURES + 'partials/partials/'
@@ -79,7 +79,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with custom data', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'data-page/pages/',
       layouts: FIXTURES + 'data-page/layouts/',
       partials: FIXTURES + 'data-page/partials/'
@@ -97,7 +97,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with external JSON data', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'data-json/pages/',
       layouts: FIXTURES + 'data-json/layouts/',
       data: FIXTURES + 'data-json/data/'
@@ -115,7 +115,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with an array of external JSON data', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'data-array/pages/',
       layouts: FIXTURES + 'data-array/layouts/',
       data: [FIXTURES + 'data-array/data/', FIXTURES + 'data-array/data-extra/']
@@ -133,7 +133,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with external JS data', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'data-js/pages/',
       layouts: FIXTURES + 'data-js/layouts/',
       data: FIXTURES + 'data-js/data/'
@@ -151,7 +151,7 @@ describe('Panini', () => {
   });
 
   it('builds a page with external YAML data', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'data-yaml/pages/',
       layouts: FIXTURES + 'data-yaml/layouts/',
       data: FIXTURES + 'data-yaml/data/'
@@ -169,9 +169,9 @@ describe('Panini', () => {
   });
 });
 
-describe('Panini variables', () => {
+describe('PaniniMustache variables', () => {
   it('{{page}} variable that stores the current page', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'variable-page/pages/',
       layouts: FIXTURES + 'variable-page/layouts/',
     });
@@ -188,7 +188,7 @@ describe('Panini variables', () => {
   });
 
   it('{{layout}} variable that stores the current layout', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'variable-layout/pages/',
       layouts: FIXTURES + 'variable-layout/layouts/',
     });
@@ -205,7 +205,7 @@ describe('Panini variables', () => {
   });
 
   it('{{root}} variable that stores a relative path to the root folder', done => {
-    var p = new Panini({
+    var p = new PaniniMustache({
       root: FIXTURES + 'variable-root/pages/',
       layouts: FIXTURES + 'variable-root/layouts/',
       partials: FIXTURES + 'variable-root/partials/'
