@@ -7,8 +7,9 @@ var panini;
  */
 function Panini(options) {
   this.options = options;
-  this.Handlebars = require('handlebars');
+  this.Mustache = require('mustache');
   this.layouts = {};
+  this.partials = {};
   this.data = {};
 
   if (!options.layouts) {
@@ -23,8 +24,6 @@ function Panini(options) {
 Panini.prototype.refresh = require('./lib/refresh');
 Panini.prototype.loadLayouts = require('./lib/loadLayouts');
 Panini.prototype.loadPartials = require('./lib/loadPartials');
-Panini.prototype.loadHelpers = require('./lib/loadHelpers');
-Panini.prototype.loadBuiltinHelpers = require('./lib/loadBuiltinHelpers');
 Panini.prototype.loadData = require('./lib/loadData');
 Panini.prototype.render = require('./lib/render');
 
@@ -36,7 +35,6 @@ Panini.prototype.render = require('./lib/render');
 module.exports = function(options) {
   if (!panini) {
     panini = new Panini(options);
-    panini.loadBuiltinHelpers();
     panini.refresh();
     module.exports.refresh = panini.refresh.bind(panini);
   }
