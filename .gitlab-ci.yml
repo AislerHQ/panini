@@ -1,0 +1,13 @@
+before_script:
+  - nodejs -v
+  - which nodejs
+  - npm install
+
+stages:
+  - test
+
+test_job:
+  environment: test
+  stage: test
+  script:
+    - npm test
