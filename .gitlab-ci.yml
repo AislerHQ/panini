@@ -1,6 +1,6 @@
 before_script:
-  - nodejs -v
-  - which nodejs
+  - node -v
+  - which node
   - npm install
 
 stages:
